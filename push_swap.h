@@ -6,7 +6,7 @@
 /*   By: yitoh <yitoh@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/19 10:52:33 by yitoh         #+#    #+#                 */
-/*   Updated: 2023/01/23 13:05:13 by yitoh         ########   odam.nl         */
+/*   Updated: 2023/01/26 15:26:51 by yitoh         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,22 @@
 # include <stdarg.h>
 # include "../personal_libft/libft.h"
 
-t_list	*parse_num(int argc, char **argv);
+typedef struct s_dlist
+{
+	int				data;
+	struct s_dlist	*next;
+	struct s_dlist	*prev;
+}					t_dlist;
+
+t_dlist	*dlstnew(int data);
+void	dlstadd_back(t_dlist **lst, t_dlist *new);
+void	dlstadd_front(t_dlist **lst, t_dlist *new);
+
+t_dlist	*parse_num(int argc, char **argv);
+t_dlist	*split_parse(char *str);
+
+int		error_check(t_dlist	*lst);
+int		non_integer(int argc, char	**argv);
+void	free_list(t_dlist *lst);
 
 #endif

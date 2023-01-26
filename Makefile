@@ -6,13 +6,13 @@
 #    By: yitoh <yitoh@student.codam.nl>               +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/01/19 10:52:21 by yitoh         #+#    #+#                  #
-#    Updated: 2023/01/23 11:08:38 by yitoh         ########   odam.nl          #
+#    Updated: 2023/01/26 16:25:53 by yitoh         ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 
 CC = cc
-SRC = push_swap.c
+SRC = push_swap.c doubly.c push_error.c
 OBJ = $(SRC:.c=.o)
 CFLAG = -Wall -Wextra -Werror #-fsanitize=address -g
 NAME = push_swap.a
