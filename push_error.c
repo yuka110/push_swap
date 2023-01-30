@@ -6,7 +6,7 @@
 /*   By: yitoh <yitoh@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/26 16:25:07 by yitoh         #+#    #+#                 */
-/*   Updated: 2023/01/26 16:25:16 by yitoh         ########   odam.nl         */
+/*   Updated: 2023/01/30 07:59:15 by yitoh         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,7 @@ int	non_integer(int argc, char	**argv)
 	return (1);
 }
 
-void	free_list(t_dlist *lst)
+void	free_dlist(t_dlist *lst)
 {
 	t_dlist	*ptr;
 
@@ -119,23 +119,3 @@ void	free_list(t_dlist *lst)
 		ptr = lst->next;
 	}
 }
-
-/*
-error
-
-1. MAX_INT
-
-2. Duplicate
-after parsing to stack a
-
-3. Non-integer
-ok
-4. num list in string
-
--> atoi checks 
-
-
-
-
-
-*/

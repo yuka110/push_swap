@@ -6,7 +6,7 @@
 /*   By: yitoh <yitoh@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/26 12:08:18 by yitoh         #+#    #+#                 */
-/*   Updated: 2023/01/26 15:16:46 by yitoh         ########   odam.nl         */
+/*   Updated: 2023/01/30 09:43:16 by yitoh         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ t_dlist	*dlstnew(int data)
 	newnode->data = data;
 	newnode->next = NULL;
 	newnode->prev = NULL;
+	newnode->num = 0;
 	return (newnode);
 }
 
@@ -41,6 +42,7 @@ void	dlstadd_back(t_dlist **lst, t_dlist *new)
 		p = p->next;
 	p->next = new;
 	new->prev = p;
+	//new->next = lst;
 }
 
 void	dlstadd_front(t_dlist **lst, t_dlist *new)
@@ -50,4 +52,19 @@ void	dlstadd_front(t_dlist **lst, t_dlist *new)
 	new->next = *lst;
 	(*lst)->prev = new;
 	*lst = new;
+}
+
+int	dlst_size(t_dlist *lst)
+{
+	t_dlist	*ptr;
+	int		count;
+
+	count = 0;
+	ptr = lst;
+	while (ptr)
+	{
+		ptr = ptr->next;
+		++count;
+	}
+	return (count);
 }

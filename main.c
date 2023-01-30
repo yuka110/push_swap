@@ -6,7 +6,7 @@
 /*   By: yitoh <yitoh@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/19 10:57:15 by yitoh         #+#    #+#                 */
-/*   Updated: 2023/01/26 15:26:30 by yitoh         ########   odam.nl         */
+/*   Updated: 2023/01/30 09:42:18 by yitoh         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,40 @@
 
 int	main(int argc, char **argv)
 {
-	t_dlist	*list;
+	t_dlist	*a;
 	t_dlist	*ptr;
-	int		check;
+	int		len;
 
-	list = parse_num(argc, argv);
-	if (!list)
+	a = parse_num(argc, argv);
+	if (!a)
 		return (0);
-	ptr = list;
+	ptr = a;
 	while (ptr)
 	{
 		printf("%d ", ptr->data);
 		ptr = ptr->next;
 	}
 	printf("\n");
-	check = error_check(list);
-	free_list(list);
+	ptr = a;
+	if (error_check(ptr) == 0)
+		return (0);
+	ptr = a;
+	if (all_sorted(ptr) == 1)
+		return (printf("\n"), 0);
+	len = dlst_size(a);
+	printf("len = %d\n", len);
+	simple_num(a, len);
+	ptr = a;
+	while (ptr)
+	{
+		printf("%d ", ptr->num);
+		ptr = ptr->next;
+	}
+	// if (len <= 6)
+	// 	a = small_sort(a, len);
+	//a = big_sort(a);
+	free_dlist(a);
 }
-
 
 /*
 1. parse input in dlink list in int (ft_atoi)

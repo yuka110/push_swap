@@ -6,7 +6,7 @@
 /*   By: yitoh <yitoh@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/19 10:52:33 by yitoh         #+#    #+#                 */
-/*   Updated: 2023/01/26 15:26:51 by yitoh         ########   odam.nl         */
+/*   Updated: 2023/01/30 09:39:14 by yitoh         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,19 +22,26 @@
 typedef struct s_dlist
 {
 	int				data;
+	int				num;
 	struct s_dlist	*next;
 	struct s_dlist	*prev;
 }					t_dlist;
 
+//doubly
 t_dlist	*dlstnew(int data);
 void	dlstadd_back(t_dlist **lst, t_dlist *new);
 void	dlstadd_front(t_dlist **lst, t_dlist *new);
+int		dlst_size(t_dlist *lst);
 
+//push_error
 t_dlist	*parse_num(int argc, char **argv);
 t_dlist	*split_parse(char *str);
-
 int		error_check(t_dlist	*lst);
 int		non_integer(int argc, char	**argv);
-void	free_list(t_dlist *lst);
+void	free_dlist(t_dlist *lst);
+
+//push_swap
+int		all_sorted(t_dlist *lst);
+void	simple_num(t_dlist *a, int len);
 
 #endif
