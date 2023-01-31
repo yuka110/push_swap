@@ -6,7 +6,7 @@
 /*   By: yitoh <yitoh@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/19 10:57:15 by yitoh         #+#    #+#                 */
-/*   Updated: 2023/01/30 09:42:18 by yitoh         ########   odam.nl         */
+/*   Updated: 2023/01/31 20:40:23 by yitoh         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,21 @@ int	main(int argc, char **argv)
 		printf("%d ", ptr->num);
 		ptr = ptr->next;
 	}
+	printf("\n");
+	a = which_cases(a);
+	ptr = a;
+	while (ptr)
+	{
+		printf(":%d ", ptr->num);
+		ptr = ptr->next;
+	}
 	// if (len <= 6)
 	// 	a = small_sort(a, len);
 	//a = big_sort(a);
 	free_dlist(a);
 }
+
+
 
 /*
 1. parse input in dlink list in int (ft_atoi)

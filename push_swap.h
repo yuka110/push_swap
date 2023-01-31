@@ -6,7 +6,7 @@
 /*   By: yitoh <yitoh@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/19 10:52:33 by yitoh         #+#    #+#                 */
-/*   Updated: 2023/01/31 15:38:08 by yitoh         ########   odam.nl         */
+/*   Updated: 2023/01/31 20:33:04 by yitoh         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,11 @@ void	free_dlist(t_dlist *lst);
 //push_swap
 int		all_sorted(t_dlist *lst);
 void	simple_num(t_dlist *a, int len);
+
+//push_trio
+t_dlist	*which_cases(t_dlist *lst);
+t_dlist	*sa_action(t_dlist *lst);
+t_dlist	*ra_action(t_dlist *lst);
+t_dlist	*rra_action(t_dlist *lst);
 
 #endif
