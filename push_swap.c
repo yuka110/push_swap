@@ -6,7 +6,7 @@
 /*   By: yitoh <yitoh@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/19 10:52:29 by yitoh         #+#    #+#                 */
-/*   Updated: 2023/01/30 11:45:16 by yitoh         ########   odam.nl         */
+/*   Updated: 2023/01/31 15:55:19 by yitoh         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,29 +42,21 @@ void	simple_num(t_dlist *a, int len)
 		p1 = a;
 		while (p1->next && p1->data <= min)
 			p1 = p1->next;
-		p2 = p1;
-		printf("start=%d\n", p1->data);
 		while (p1->next && p2)
 		{
 			p2 = p1->next;
-			while (p2 && (p2->data <= min))
+			while (p2->next && (p2->data <= min))
 				p2 = p2->next;
-			printf("p1=%d, p2=%d\n", p1->data, p2->data);
-			while (p2 && (p1->data < p2->data))
-			{
+			while (p2->next && ((p1->data < p2->data) || p2->data <= min))
 				p2 = p2->next;
-				printf(":p1=%d, p2=%d\n", p1->data, p2->data);
-				if (p2 && p2->data <= min)
-					p2 = p2->next;
-			}
-			if (!p2)
+			if (p1->data > p2->data && p2->data > min)
+				p1 = p2;
+			if (!p2->next || p2->data <= min)
 				break ;
-			p1 = p2;
 		}
 		p1->num = i;
 		++i;
 		min = p1->data;
-		printf("-----p1=%d, min=%d\n", p1->data, min);
 	}
 }
 
