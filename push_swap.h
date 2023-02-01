@@ -6,7 +6,7 @@
 /*   By: yitoh <yitoh@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/19 10:52:33 by yitoh         #+#    #+#                 */
-/*   Updated: 2023/01/31 20:33:04 by yitoh         ########   odam.nl         */
+/*   Updated: 2023/02/01 17:26:28 by yitoh         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,18 @@ void	simple_num(t_dlist *a, int len);
 
 //push_trio
 t_dlist	*which_cases(t_dlist *lst);
-t_dlist	*sa_action(t_dlist *lst);
-t_dlist	*ra_action(t_dlist *lst);
-t_dlist	*rra_action(t_dlist *lst);
+t_dlist	*ft_swap(t_dlist *lst);
+t_dlist	*ft_rotate(t_dlist *lst);
+t_dlist	*ft_reverser(t_dlist *lst);
+t_dlist	*ft_push(t_dlist *lst1, t_dlist *lst2);
+
+//push_operation1
+t_dlist	*sa_action(t_dlist *a);
+t_dlist	*sb_action(t_dlist *b);
+t_dlist	*ra_action(t_dlist *a);
+t_dlist	*rb_action(t_dlist *b);
+
+//push_operation2
+
 
 #endif

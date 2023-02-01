@@ -6,7 +6,7 @@
 /*   By: yitoh <yitoh@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/19 10:57:15 by yitoh         #+#    #+#                 */
-/*   Updated: 2023/01/31 20:40:23 by yitoh         ########   odam.nl         */
+/*   Updated: 2023/02/01 16:53:48 by yitoh         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,9 +60,25 @@ int	main(int argc, char **argv)
 
 
 /*
-1. parse input in dlink list in int (ft_atoi)
-2. error check
-3. compare values
-4. assign order_id form (0 - num of nodes)
+
 5. line them up based on the order_id 
+
+1 2 3	5 4 6
+1 2 4 	3 5 6
+1 2 5 	3 4 6
+1 2 6 	3 4 5
+
+
+1 3 4	2 5 6
+1 
+1 2 4 3 5
+1 2 4 5 3
+1 2 5 3 4
+1 2 5 4 3
+1 3
+
+
+
+
+
 */

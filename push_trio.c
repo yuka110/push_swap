@@ -6,7 +6,7 @@
 /*   By: yitoh <yitoh@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/31 15:58:22 by yitoh         #+#    #+#                 */
-/*   Updated: 2023/01/31 20:38:31 by yitoh         ########   odam.nl         */
+/*   Updated: 2023/02/01 17:15:46 by yitoh         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ t_dlist	*which_cases(t_dlist *lst)
 	return (lst);
 }
 
-t_dlist	*sa_action(t_dlist *lst)
+t_dlist	*ft_swap(t_dlist *lst)
 {
 	t_dlist	*p1;
 	t_dlist	*p2;
@@ -49,23 +49,27 @@ t_dlist	*sa_action(t_dlist *lst)
 	return (lst);
 }
 
-t_dlist	*ra_action(t_dlist *lst)
+t_dlist	*ft_rotate(t_dlist *lst)
 {
 	t_dlist	*p1;
 	t_dlist	*p2;
+	t_dlist	*last;
 
 	p1 = lst;
 	p2 = lst->next;
+	last = lst;
+	while (last->next)
+		last = last->next;
 	p1->next = NULL;
-	p1->prev = p2->next;
-	(p1->prev)->next = p1;
+	p1->prev = last;
+	last->next = p1;
 	p2->prev = NULL;
 	lst = p2;
 	printf("ra\n");
 	return (lst);
 }
 
-t_dlist	*rra_action(t_dlist *lst)
+t_dlist	*ft_reverser(t_dlist *lst)
 {
 	t_dlist	*p1;
 	t_dlist	*p2;
@@ -77,8 +81,15 @@ t_dlist	*rra_action(t_dlist *lst)
 	p1->next = p2;
 	p1->prev = NULL;
 	p2->prev = p1;
-	(p2->next)->next = NULL;
+	while (p2->next)
+		p2 = p2->next;
+	p2->next = NULL;
 	lst = p1;
 	printf("rra\n");
 	return (lst);
+}
+
+t_dlist	*ft_push(t_dlist *lst1, t_dlist *lst2)
+{
+	
 }
