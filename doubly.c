@@ -6,7 +6,7 @@
 /*   By: yitoh <yitoh@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/26 12:08:18 by yitoh         #+#    #+#                 */
-/*   Updated: 2023/01/30 09:43:16 by yitoh         ########   odam.nl         */
+/*   Updated: 2023/02/03 16:05:28 by yitoh         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,11 @@ void	dlstadd_front(t_dlist **lst, t_dlist *new)
 {
 	if (!new)
 		return ;
+	if (!lst || !(*lst))
+	{
+		*lst = new;
+		return ;
+	}
 	new->next = *lst;
 	(*lst)->prev = new;
 	*lst = new;
@@ -67,4 +72,20 @@ int	dlst_size(t_dlist *lst)
 		++count;
 	}
 	return (count);
+}
+
+t_dlist	*pop_push(t_dlist *dst, t_dlist *src)
+{
+	t_dlist	*newnode;
+
+	newnode = (t_dlist *)malloc (sizeof(t_dlist));
+	if (!newnode)
+		return (NULL);
+	newnode->data = src->data;
+	newnode->next = NULL;
+	newnode->prev = NULL;
+	newnode->num = src->num;
+	dlstadd_front(&dst, newnode);
+	free (src);
+	return (dst);
 }

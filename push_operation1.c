@@ -6,7 +6,7 @@
 /*   By: yitoh <yitoh@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/02/01 17:16:28 by yitoh         #+#    #+#                 */
-/*   Updated: 2023/02/01 17:30:13 by yitoh         ########   odam.nl         */
+/*   Updated: 2023/02/03 15:28:34 by yitoh         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,6 @@ t_dlist	*sb_action(t_dlist *b)
 	printf("sb\n");
 	return (b);
 }
-
-// t_dlist	*ss_action(t_dlist *a, t_dlist *b)
-// {
-//     a = ft_swap(a);
-//     printf("ss\n");
-// 	return (a);
-// }
 
 t_dlist	*ra_action(t_dlist *a)
 {

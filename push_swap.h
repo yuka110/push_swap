@@ -6,7 +6,7 @@
 /*   By: yitoh <yitoh@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/19 10:52:33 by yitoh         #+#    #+#                 */
-/*   Updated: 2023/02/01 17:26:28 by yitoh         ########   odam.nl         */
+/*   Updated: 2023/02/03 16:03:34 by yitoh         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ t_dlist	*dlstnew(int data);
 void	dlstadd_back(t_dlist **lst, t_dlist *new);
 void	dlstadd_front(t_dlist **lst, t_dlist *new);
 int		dlst_size(t_dlist *lst);
+t_dlist	*pop_push(t_dlist *dst, t_dlist *src);
 
 //push_error
 t_dlist	*parse_num(int argc, char **argv);
@@ -58,6 +59,9 @@ t_dlist	*ra_action(t_dlist *a);
 t_dlist	*rb_action(t_dlist *b);
 
 //push_operation2
-
+t_dlist	*rra_action(t_dlist *a);
+t_dlist	*rrb_action(t_dlist *b);
+t_dlist	*pb_action(t_dlist *a, t_dlist *b);
+t_dlist	*pa_action(t_dlist *b, t_dlist *a);
 
 #endif

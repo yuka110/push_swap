@@ -6,7 +6,7 @@
 /*   By: yitoh <yitoh@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/31 15:58:22 by yitoh         #+#    #+#                 */
-/*   Updated: 2023/02/01 17:15:46 by yitoh         ########   odam.nl         */
+/*   Updated: 2023/02/03 15:52:29 by yitoh         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ t_dlist	*ft_reverser(t_dlist *lst)
 	return (lst);
 }
 
-t_dlist	*ft_push(t_dlist *lst1, t_dlist *lst2)
-{
+// t_dlist	*ft_push(t_dlist *lst1, t_dlist *lst2)
+// {
 	
-}
+// }
