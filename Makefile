@@ -6,13 +6,14 @@
 #    By: yitoh <yitoh@student.codam.nl>               +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/01/19 10:52:21 by yitoh         #+#    #+#                  #
-#    Updated: 2023/02/01 17:24:19 by yitoh         ########   odam.nl          #
+#    Updated: 2023/02/05 16:19:59 by yitoh         ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 
 CC = cc
-SRC = push_swap.c doubly.c push_error.c push_trio.c push_operation1.c push_operation2.c
+SRC = push_swap.c doubly.c push_error.c push_trio.c push_operation1.c push_operation2.c\
+		push_operation3.c
 OBJ = $(SRC:.c=.o)
 CFLAG = -Wall -Wextra -Werror #-fsanitize=address -g
 NAME = push_swap.a
@@ -38,7 +39,7 @@ clean:
 	@rm -rf $(OBJ)
 
 fclean: clean
-	@rm -f $(NAME) a.out
+	@rm -f $(NAME) push_swap
 	@$(MAKE) -C $(LIBFT_DIR) fclean
 
 re: fclean all

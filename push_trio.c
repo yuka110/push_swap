@@ -6,90 +6,63 @@
 /*   By: yitoh <yitoh@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/31 15:58:22 by yitoh         #+#    #+#                 */
-/*   Updated: 2023/02/03 15:52:29 by yitoh         ########   odam.nl         */
+/*   Updated: 2023/02/05 16:54:24 by yitoh         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_dlist	*which_cases(t_dlist *lst)
+void	sort_three(t_dlist **lst)
 {
-	if (lst->num == 0)
+	int	fst;
+	int	sec;
+	int	trd;
+
+	fst = (*lst)->num;
+	sec = ((*lst)->next)->num;
+	trd = (((*lst)->next)->next)->num;
+	printf("fst=%d, sec=%d, trd=%d\n", fst, sec, trd);
+	if (fst < sec && fst < trd)
 	{
-		lst = sa_action(lst);
-		lst = ra_action(lst);	
+		sa_action(lst);
+		ra_action(lst);
 	}
-	if (lst->num == 1 && (lst->next)->num == 2)
-		lst = rra_action(lst);
-	if (lst->num == 1 && (lst->next)->num == 0)
-		lst = sa_action(lst);
-	if (lst->num == 2 && (lst->next)->num == 0)
-		lst = ra_action(lst);	
-	if (lst->num == 2 && (lst->next)->num == 1)
+	if (fst < sec && sec > trd && trd < fst)
+		rra_action(lst);
+	if (fst > sec && sec < trd && trd > fst)
+		sa_action(lst);
+	if (fst > sec && sec < trd && trd < fst)
+		ra_action(lst);
+	if (fst > sec && sec > trd && trd < fst)
 	{
-		lst = sa_action(lst);	
-		lst = rra_action(lst);
+		sa_action(lst);
+		rra_action(lst);
 	}
-	return (lst);
 }
 
-t_dlist	*ft_swap(t_dlist *lst)
+/*
+t_dlist	*small_sort(t_dlist *a, int len)
 {
-	t_dlist	*p1;
-	t_dlist	*p2;
+	int		get;
+	t_dlist	*p;
 
-	p1 = lst;
-	p2 = lst->next;
-	p1->next = p2->next;
-	p2->prev = NULL;
-	p2->next = p1;
-	p1->prev = p2;
-	lst = p2;
-	printf("sa\n");
-	return (lst);
-}
-
-t_dlist	*ft_rotate(t_dlist *lst)
-{
-	t_dlist	*p1;
-	t_dlist	*p2;
-	t_dlist	*last;
-
-	p1 = lst;
-	p2 = lst->next;
-	last = lst;
-	while (last->next)
-		last = last->next;
-	p1->next = NULL;
-	p1->prev = last;
-	last->next = p1;
-	p2->prev = NULL;
-	lst = p2;
-	printf("ra\n");
-	return (lst);
-}
-
-t_dlist	*ft_reverser(t_dlist *lst)
-{
-	t_dlist	*p1;
-	t_dlist	*p2;
-
-	p1 = lst;
-	p2 = lst;
-	while (p1->next)
-		p1 = p1->next;
-	p1->next = p2;
-	p1->prev = NULL;
-	p2->prev = p1;
-	while (p2->next)
-		p2 = p2->next;
-	p2->next = NULL;
-	lst = p1;
-	printf("rra\n");
-	return (lst);
-}
-
-// t_dlist	*ft_push(t_dlist *lst1, t_dlist *lst2)
-// {
+	get = 0;
+	p = a;
+	if (len <= 3)
+		tiny
+	if (len == 4)
+		a = sort_four(p);
+	if (len == 5)
+		sort_five(p);
+	if (len == 6)
+		sort_six(p);
 	
-// }
+
+	//find min
+	// move it to top of a;
+	//push it to b;
+		a = which_cases(a);
+	
+	
+}
+*/

@@ -6,7 +6,7 @@
 /*   By: yitoh <yitoh@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/19 10:57:15 by yitoh         #+#    #+#                 */
-/*   Updated: 2023/02/03 16:07:14 by yitoh         ########   odam.nl         */
+/*   Updated: 2023/02/05 16:47:39 by yitoh         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,48 +39,18 @@ int	main(int argc, char **argv)
 	len = dlst_size(a);
 	printf("len = %d\n", len);
 	simple_num(a, len);
-	ptr = a;
-	while (ptr)
-	{
-		printf("%d ", ptr->num);
-		ptr = ptr->next;
-	}
-	printf("\n");
-	b = pb_action(a, b);
-	ptr = a;
-	while (ptr)
-	{
-		printf("a%d ", ptr->num);
-		ptr = ptr->next;
-	}
-	ptr = b;
-	while (ptr)
-	{
-		printf("b%d ", ptr->num);
-		ptr = ptr->next;
-	}
-	// a = which_cases(a);
-	// ptr = a;
-	// while (ptr)
-	// {
-	// 	printf(":%d ", ptr->num);
-	// 	ptr = ptr->next;
-	// }
+	print_num(a);
+	pb_action(&a, &b);
+	print_num(a);
+	print_num(b);
+	sort_three(&a);
+	print_num(a);
 	// if (len <= 6)
 	// 	a = small_sort(a, len);
 	//a = big_sort(a);
 	free_dlist(a);
 	free_dlist(b);
 }
-
-// % ./push_swap 38479 378 899
-// 38479 378 899 
-// len = 3
-// 2 0 1 
-// pb
-// push_swap(13571,0x110e875c0) malloc: *** error for object 0x7ff0d3400640: pointer being freed was not allocated
-// push_swap(13571,0x110e875c0) malloc: *** set a breakpoint in malloc_error_break to debug
-// a2 a0 a1 b38479 zsh: abort      ./push_swap 38479 378 899
 
 /*
 

@@ -6,7 +6,7 @@
 /*   By: yitoh <yitoh@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/19 10:52:33 by yitoh         #+#    #+#                 */
-/*   Updated: 2023/02/03 16:03:34 by yitoh         ########   odam.nl         */
+/*   Updated: 2023/02/05 16:46:03 by yitoh         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,24 +44,30 @@ void	free_dlist(t_dlist *lst);
 //push_swap
 int		all_sorted(t_dlist *lst);
 void	simple_num(t_dlist *a, int len);
+void	print_num(t_dlist	*lst);
 
 //push_trio
-t_dlist	*which_cases(t_dlist *lst);
-t_dlist	*ft_swap(t_dlist *lst);
-t_dlist	*ft_rotate(t_dlist *lst);
-t_dlist	*ft_reverser(t_dlist *lst);
-t_dlist	*ft_push(t_dlist *lst1, t_dlist *lst2);
+void	sort_three(t_dlist **lst);
 
 //push_operation1
-t_dlist	*sa_action(t_dlist *a);
-t_dlist	*sb_action(t_dlist *b);
-t_dlist	*ra_action(t_dlist *a);
-t_dlist	*rb_action(t_dlist *b);
+void	ft_swap(t_dlist **lst);
+void	ft_rotate(t_dlist **lst);
+void	ft_reverser(t_dlist **lst);
+void	ft_push(t_dlist **dst, t_dlist **src);
+void	sa_action(t_dlist **a);
 
 //push_operation2
-t_dlist	*rra_action(t_dlist *a);
-t_dlist	*rrb_action(t_dlist *b);
-t_dlist	*pb_action(t_dlist *a, t_dlist *b);
-t_dlist	*pa_action(t_dlist *b, t_dlist *a);
+void	sb_action(t_dlist **b);
+void	ss_action(t_dlist **a, t_dlist **b);
+void	ra_action(t_dlist **a);
+void	rb_action(t_dlist **b);
+void	rr_action(t_dlist **a, t_dlist **b);
+
+//push_operation3
+void	rra_action(t_dlist **a);
+void	rrb_action(t_dlist **b);
+void	rrr_action(t_dlist **a, t_dlist **b);
+void	pb_action(t_dlist **a, t_dlist **b);
+void	pa_action(t_dlist **b, t_dlist **a);
 
 #endif

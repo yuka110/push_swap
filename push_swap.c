@@ -6,7 +6,7 @@
 /*   By: yitoh <yitoh@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/19 10:52:29 by yitoh         #+#    #+#                 */
-/*   Updated: 2023/02/03 15:51:54 by yitoh         ########   odam.nl         */
+/*   Updated: 2023/02/05 16:46:21 by yitoh         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,44 +59,16 @@ void	simple_num(t_dlist *a, int len)
 		min = p1->data;
 	}
 }
-/*
-t_dlist	*small_sort(t_dlist *a, int len)
+
+void	print_num(t_dlist	*lst)
 {
-	int		get;
-	t_dlist	*p;
+	t_dlist	*ptr;
 
-	get = 0;
-	p = a;
-	if (len <= 3)
-		tiny
-	if (len == 4)
-		a = sort_four(p);
-	if (len == 5)
-		sort_five(p);
-	if (len == 6)
-		sort_six(p);
-	
-
-	//find min
-	// move it to top of a;
-	//push it to b;
-		a = which_cases(a);
-	
-	
+	ptr = lst;
+	while (ptr)
+	{
+		printf("%d ", ptr->num);
+		ptr = ptr->next;
+	}
+	printf("\n");
 }
-
-
-t_dlist	*sort_four(t_dlist *a)
-{
-	int		get;
-	t_dlist	*p;
-	t_dlist *b;
-
-	p = a;
-	if (p->num == 0)
-		pb_action(p, b);
-		
-
-
-}
-*/

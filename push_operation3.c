@@ -1,45 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   push_operation2.c                                  :+:    :+:            */
+/*   push_operation3.c                                  :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: yitoh <yitoh@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2023/02/01 17:26:41 by yitoh         #+#    #+#                 */
-/*   Updated: 2023/02/05 16:36:41 by yitoh         ########   odam.nl         */
+/*   Created: 2023/02/05 15:56:28 by yitoh         #+#    #+#                 */
+/*   Updated: 2023/02/05 16:36:37 by yitoh         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sb_action(t_dlist **b)
+void	rra_action(t_dlist **a)
 {
-	ft_swap(b);
-	printf("sb\n");
+	ft_reverser(a);
+	printf("rra\n");
 }
 
-void	ss_action(t_dlist **a, t_dlist **b)
+void	rrb_action(t_dlist **b)
 {
-	ft_swap(a);
-	ft_swap(b);
-	printf("ss\n");
+	ft_reverser(b);
+	printf("rrb\n");
 }
 
-void	ra_action(t_dlist **a)
+void	rrr_action(t_dlist **a, t_dlist **b)
 {
-	ft_rotate(a);
-	printf("ra\n");
+	ft_reverser(a);
+	ft_reverser(b);
+	printf("rrr\n");
 }
 
-void	rb_action(t_dlist **b)
+void	pb_action(t_dlist **a, t_dlist **b)
 {
-	ft_rotate(b);
-	printf("rb\n");
+	ft_push(b, a);
+	printf("pb\n");
 }
 
-void	rr_action(t_dlist **a, t_dlist **b)
+void	pa_action(t_dlist **b, t_dlist **a)
 {
-	ft_rotate(a);
-	ft_rotate(b);
-	printf("rr\n");
+	ft_push(a, b);
+	printf("pa\n");
 }
