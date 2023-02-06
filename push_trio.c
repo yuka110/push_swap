@@ -6,7 +6,7 @@
 /*   By: yitoh <yitoh@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/31 15:58:22 by yitoh         #+#    #+#                 */
-/*   Updated: 2023/02/05 16:54:24 by yitoh         ########   odam.nl         */
+/*   Updated: 2023/02/06 20:19:20 by yitoh         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,11 @@ void	sort_three(t_dlist **lst)
 
 	fst = (*lst)->num;
 	sec = ((*lst)->next)->num;
+	if (dlst_size(*lst) == 2 && fst > sec)
+		return (sa_action(lst));
+	if (dlst_size(*lst) == 2 && sec > fst)
+		return ;
 	trd = (((*lst)->next)->next)->num;
-	printf("fst=%d, sec=%d, trd=%d\n", fst, sec, trd);
 	if (fst < sec && fst < trd)
 	{
 		sa_action(lst);
@@ -40,29 +43,65 @@ void	sort_three(t_dlist **lst)
 	}
 }
 
-/*
-t_dlist	*small_sort(t_dlist *a, int len)
+void	small_sort(t_dlist **a, t_dlist **b, int len)
 {
-	int		get;
-	t_dlist	*p;
+	int		search;
 
-	get = 0;
-	p = a;
-	if (len <= 3)
-		tiny
-	if (len == 4)
-		a = sort_four(p);
-	if (len == 5)
-		sort_five(p);
-	if (len == 6)
-		sort_six(p);
-	
-
-	//find min
-	// move it to top of a;
-	//push it to b;
-		a = which_cases(a);
-	
-	
+	search = 0;
+	while (len > 3 && search < len - 3)
+	{
+		push_top(a, len, search);
+		pb_action(a, b);
+		search++;
+	}
+	sort_three(a);
+	while (search > 0)
+	{
+		pa_action(b, a);
+		search--;
+	}
+	return ;
 }
+
+void	push_top(t_dlist **a, int len, int index)
+{
+	int		i;
+	t_dlist	*ptr;
+
+	i = 1;
+	ptr = *a;
+	while (i <= len)
+	{
+		if (i == 1 && ptr->num == index)
+			return ;
+		if (i == 2 && ptr->num == index)
+			return (sa_action(a));
+		if (i == 3 && ptr->num == index)
+		{
+			while (i < len)
+			{
+				ra_action(a);
+				i++;
+			}
+			return ;
+		}
+		if (i == len && ptr->num == index)
+			return (rra_action(a));
+		if (i == len - 1 && ptr->num == index)
+			return (rra_action(a), rra_action(a));
+		ptr = ptr->next;
+		i++;
+	}
+}
+
+/*
+
+is 0 located at len/2?
+
+1101 ra pb
+11011 ra ra pb
+11101 rra rra pb
+
+len - 3
+
 */

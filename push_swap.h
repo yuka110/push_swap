@@ -6,7 +6,7 @@
 /*   By: yitoh <yitoh@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/19 10:52:33 by yitoh         #+#    #+#                 */
-/*   Updated: 2023/02/05 16:46:03 by yitoh         ########   odam.nl         */
+/*   Updated: 2023/02/06 19:52:23 by yitoh         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@ void	print_num(t_dlist	*lst);
 
 //push_trio
 void	sort_three(t_dlist **lst);
+void	small_sort(t_dlist **a, t_dlist **b, int len);
+void	push_top(t_dlist **a, int len, int index);
 
 //push_operation1
 void	ft_swap(t_dlist **lst);

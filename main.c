@@ -6,7 +6,7 @@
 /*   By: yitoh <yitoh@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/19 10:57:15 by yitoh         #+#    #+#                 */
-/*   Updated: 2023/02/05 16:47:39 by yitoh         ########   odam.nl         */
+/*   Updated: 2023/02/06 20:16:37 by yitoh         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,19 +37,14 @@ int	main(int argc, char **argv)
 	if (all_sorted(ptr) == 1)
 		return (printf("\n"), 0);
 	len = dlst_size(a);
-	printf("len = %d\n", len);
 	simple_num(a, len);
+	if (len < 6)
+		small_sort(&a, &b, len);
 	print_num(a);
-	pb_action(&a, &b);
-	print_num(a);
-	print_num(b);
-	sort_three(&a);
-	print_num(a);
-	// if (len <= 6)
-	// 	a = small_sort(a, len);
 	//a = big_sort(a);
 	free_dlist(a);
-	free_dlist(b);
+	if (b)
+		free_dlist(b);
 }
 
 /*

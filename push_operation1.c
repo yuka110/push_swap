@@ -6,7 +6,7 @@
 /*   By: yitoh <yitoh@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/02/01 17:16:28 by yitoh         #+#    #+#                 */
-/*   Updated: 2023/02/05 16:54:08 by yitoh         ########   odam.nl         */
+/*   Updated: 2023/02/06 20:12:37 by yitoh         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,8 @@ void	ft_push(t_dlist **dst, t_dlist **src)
 	tmp = *src;
 	*src = (*src)->next;
 	tmp->next = *dst;
-	(*src)->prev = NULL;
+	if (*src)
+		(*src)->prev = NULL;
 	if (*dst)
 		(*dst)->prev = tmp;
 	*dst = tmp;
