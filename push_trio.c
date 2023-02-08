@@ -6,7 +6,7 @@
 /*   By: yitoh <yitoh@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/31 15:58:22 by yitoh         #+#    #+#                 */
-/*   Updated: 2023/02/06 20:19:20 by yitoh         ########   odam.nl         */
+/*   Updated: 2023/02/08 16:10:56 by yitoh         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,14 +94,3 @@ void	push_top(t_dlist **a, int len, int index)
 	}
 }
 
-/*
-
-is 0 located at len/2?
-
-1101 ra pb
-11011 ra ra pb
-11101 rra rra pb
-
-len - 3
-
-*/

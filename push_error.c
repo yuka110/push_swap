@@ -6,7 +6,7 @@
 /*   By: yitoh <yitoh@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/26 16:25:07 by yitoh         #+#    #+#                 */
-/*   Updated: 2023/01/30 07:59:15 by yitoh         ########   odam.nl         */
+/*   Updated: 2023/02/08 19:23:20 by yitoh         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ t_dlist	*parse_num(int argc, char **argv)
 		lst = split_parse(argv[1]);
 	while (i < argc)
 	{
+		if (ft_strlen(argv[i]) == 0)
+			return (printf("Error\n"), NULL);
 		new = dlstnew(ft_atoi(argv[i]));
 		dlstadd_back(&lst, new);
 		++i;

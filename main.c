@@ -6,7 +6,7 @@
 /*   By: yitoh <yitoh@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/19 10:57:15 by yitoh         #+#    #+#                 */
-/*   Updated: 2023/02/06 20:16:37 by yitoh         ########   odam.nl         */
+/*   Updated: 2023/02/08 19:25:15 by yitoh         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,13 @@ int	main(int argc, char **argv)
 	a = parse_num(argc, argv);
 	if (!a)
 		return (0);
-	ptr = a;
-	while (ptr)
-	{
-		printf("%d ", ptr->data);
-		ptr = ptr->next;
-	}
-	printf("\n");
+	// ptr = a;
+	// while (ptr)
+	// {
+	// 	printf("%d ", ptr->data);
+	// 	ptr = ptr->next;
+	// }
+	// printf("\n");
 	ptr = a;
 	if (error_check(ptr) == 0)
 		return (0);
@@ -38,10 +38,12 @@ int	main(int argc, char **argv)
 		return (printf("\n"), 0);
 	len = dlst_size(a);
 	simple_num(a, len);
+	//print_num(a);
 	if (len < 6)
 		small_sort(&a, &b, len);
-	print_num(a);
-	//a = big_sort(a);
+	else
+		radix_sort(&a, &b, len);
+	//print_num(a);
 	free_dlist(a);
 	if (b)
 		free_dlist(b);

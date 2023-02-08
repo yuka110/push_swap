@@ -1,4 +1,6 @@
 .DS_Store
 *.out
 *.o
-*.a
+push_swap
+checker_mac
+checker_linux

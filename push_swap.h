@@ -6,7 +6,7 @@
 /*   By: yitoh <yitoh@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/19 10:52:33 by yitoh         #+#    #+#                 */
-/*   Updated: 2023/02/06 19:52:23 by yitoh         ########   odam.nl         */
+/*   Updated: 2023/02/08 17:44:53 by yitoh         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ t_dlist	*dlstnew(int data);
 void	dlstadd_back(t_dlist **lst, t_dlist *new);
 void	dlstadd_front(t_dlist **lst, t_dlist *new);
 int		dlst_size(t_dlist *lst);
-t_dlist	*pop_push(t_dlist *dst, t_dlist *src);
+int		dlst_max(t_dlist *lst);
 
 //push_error
 t_dlist	*parse_num(int argc, char **argv);
@@ -50,6 +50,8 @@ void	print_num(t_dlist	*lst);
 void	sort_three(t_dlist **lst);
 void	small_sort(t_dlist **a, t_dlist **b, int len);
 void	push_top(t_dlist **a, int len, int index);
+
+void	radix_sort(t_dlist **a, t_dlist **b, int len);
 
 //push_operation1
 void	ft_swap(t_dlist **lst);
