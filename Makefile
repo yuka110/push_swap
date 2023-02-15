@@ -6,16 +6,15 @@
 #    By: yitoh <yitoh@student.codam.nl>               +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/01/19 10:52:21 by yitoh         #+#    #+#                  #
-#    Updated: 2023/02/08 18:55:49 by yitoh         ########   odam.nl          #
+#    Updated: 2023/02/15 16:23:39 by yitoh         ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
-
 CC = cc
-SRC = push_swap.c doubly.c push_error.c push_trio.c push_operation1.c push_operation2.c\
-		push_operation3.c push_radix.c main.c
+SRC = push_swap.c doubly_list.c push_error.c push_trio.c push_operation1.c push_operation2.c\
+		push_operation3.c main.c
 OBJ = $(SRC:.c=.o)
-CFLAG = -Wall -Wextra -Werror #-fsanitize=address -g
+CFLAG = -Wall -Wextra -Werror
 NAME = push_swap
 LIBFT_DIR = ../personal_libft
 LIBFT = $(LIBFT_DIR)/libft.a

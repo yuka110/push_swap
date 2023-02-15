@@ -6,7 +6,7 @@
 /*   By: yitoh <yitoh@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/31 15:58:22 by yitoh         #+#    #+#                 */
-/*   Updated: 2023/02/08 16:10:56 by yitoh         ########   odam.nl         */
+/*   Updated: 2023/02/15 16:21:32 by yitoh         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,20 +37,24 @@ void	sort_three(t_dlist **lst)
 	if (fst > sec && sec < trd && trd < fst)
 		ra_action(lst);
 	if (fst > sec && sec > trd && trd < fst)
-	{
-		sa_action(lst);
-		rra_action(lst);
-	}
+		return (sa_action(lst), rra_action(lst));
 }
 
 void	small_sort(t_dlist **a, t_dlist **b, int len)
 {
 	int		search;
-
+	// t_dlist	*ptr;
+	// ptr = *a;
+	// while (ptr)
+	// {
+	// ft_printf("%d, ", ptr->num);
+	// 	ptr = ptr->next;
+	// }
+	// ft_printf("\n");
 	search = 0;
 	while (len > 3 && search < len - 3)
 	{
-		push_top(a, len, search);
+		push_top(a, len, search, 1);
 		pb_action(a, b);
 		search++;
 	}
@@ -63,14 +67,13 @@ void	small_sort(t_dlist **a, t_dlist **b, int len)
 	return ;
 }
 
-void	push_top(t_dlist **a, int len, int index)
+void	push_top(t_dlist **a, int len, int index, int i)
 {
-	int		i;
 	t_dlist	*ptr;
 
-	i = 1;
 	ptr = *a;
-	while (i <= len)
+	// printf ("len = %d, index =%d, i = %d, num = %d\n", len, index, i, ptr->num);
+	while (ptr && i <= len)
 	{
 		if (i == 1 && ptr->num == index)
 			return ;
@@ -85,7 +88,7 @@ void	push_top(t_dlist **a, int len, int index)
 			}
 			return ;
 		}
-		if (i == len && ptr->num == index)
+		if (ptr && i == len && ptr->num == index)
 			return (rra_action(a));
 		if (i == len - 1 && ptr->num == index)
 			return (rra_action(a), rra_action(a));
@@ -93,4 +96,3 @@ void	push_top(t_dlist **a, int len, int index)
 		i++;
 	}
 }
-

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   doubly.c                                           :+:    :+:            */
+/*   doubly_list.c                                      :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: yitoh <yitoh@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/26 12:08:18 by yitoh         #+#    #+#                 */
-/*   Updated: 2023/02/08 18:56:12 by yitoh         ########   odam.nl         */
+/*   Updated: 2023/02/15 16:23:28 by yitoh         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	dlstadd_back(t_dlist **lst, t_dlist *new)
 		return ;
 	}
 	p = *lst;
-	while (p->next != NULL)
+	while (p->next)
 		p = p->next;
 	p->next = new;
 	new->prev = p;

@@ -6,7 +6,7 @@
 /*   By: yitoh <yitoh@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/19 10:52:33 by yitoh         #+#    #+#                 */
-/*   Updated: 2023/02/08 17:44:53 by yitoh         ########   odam.nl         */
+/*   Updated: 2023/02/15 16:21:01 by yitoh         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ typedef struct s_dlist
 	struct s_dlist	*next;
 	struct s_dlist	*prev;
 }					t_dlist;
-
 //doubly
 t_dlist	*dlstnew(int data);
 void	dlstadd_back(t_dlist **lst, t_dlist *new);
@@ -35,23 +34,23 @@ int		dlst_size(t_dlist *lst);
 int		dlst_max(t_dlist *lst);
 
 //push_error
+t_dlist	*over_twoargs(int argc, char **argv, t_dlist *lst);
 t_dlist	*parse_num(int argc, char **argv);
 t_dlist	*split_parse(char *str);
 int		error_check(t_dlist	*lst);
 int		non_integer(int argc, char	**argv);
-void	free_dlist(t_dlist *lst);
 
 //push_swap
 int		all_sorted(t_dlist *lst);
-void	simple_num(t_dlist *a, int len);
-void	print_num(t_dlist	*lst);
+void	simple_num(t_dlist **a, int len, int min);
+int		bit_count(int nbr);
+void	radix_sort(t_dlist **a, t_dlist **b, int len);
+void	free_dlist(t_dlist *lst);
 
 //push_trio
 void	sort_three(t_dlist **lst);
 void	small_sort(t_dlist **a, t_dlist **b, int len);
-void	push_top(t_dlist **a, int len, int index);
-
-void	radix_sort(t_dlist **a, t_dlist **b, int len);
+void	push_top(t_dlist **a, int len, int index, int i);
 
 //push_operation1
 void	ft_swap(t_dlist **lst);
