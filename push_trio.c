@@ -6,7 +6,7 @@
 /*   By: yitoh <yitoh@student.codam.nl>               +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/31 15:58:22 by yitoh         #+#    #+#                 */
-/*   Updated: 2023/02/15 16:21:32 by yitoh         ########   odam.nl         */
+/*   Updated: 2023/02/21 10:35:47 by yitoh         ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	sort_three(t_dlist **lst)
 	sec = ((*lst)->next)->num;
 	if (dlst_size(*lst) == 2 && fst > sec)
 		return (sa_action(lst));
-	if (dlst_size(*lst) == 2 && sec > fst)
+	if ((dlst_size(*lst) == 2 && sec > fst) || all_sorted(*lst) == 1)
 		return ;
 	trd = (((*lst)->next)->next)->num;
 	if (fst < sec && fst < trd)
@@ -43,20 +43,16 @@ void	sort_three(t_dlist **lst)
 void	small_sort(t_dlist **a, t_dlist **b, int len)
 {
 	int		search;
-	// t_dlist	*ptr;
-	// ptr = *a;
-	// while (ptr)
-	// {
-	// ft_printf("%d, ", ptr->num);
-	// 	ptr = ptr->next;
-	// }
-	// ft_printf("\n");
+	int		temp_len;
+
 	search = 0;
+	temp_len = len;
 	while (len > 3 && search < len - 3)
 	{
-		push_top(a, len, search, 1);
+		push_top(a, temp_len, search, 1);
 		pb_action(a, b);
 		search++;
+		temp_len--;
 	}
 	sort_three(a);
 	while (search > 0)
@@ -72,13 +68,14 @@ void	push_top(t_dlist **a, int len, int index, int i)
 	t_dlist	*ptr;
 
 	ptr = *a;
-	// printf ("len = %d, index =%d, i = %d, num = %d\n", len, index, i, ptr->num);
 	while (ptr && i <= len)
 	{
 		if (i == 1 && ptr->num == index)
 			return ;
 		if (i == 2 && ptr->num == index)
 			return (sa_action(a));
+		if (i == len - 1 && ptr->num == index)
+			return (rra_action(a), rra_action(a));
 		if (i == 3 && ptr->num == index)
 		{
 			while (i < len)
@@ -90,8 +87,6 @@ void	push_top(t_dlist **a, int len, int index, int i)
 		}
 		if (ptr && i == len && ptr->num == index)
 			return (rra_action(a));
-		if (i == len - 1 && ptr->num == index)
-			return (rra_action(a), rra_action(a));
 		ptr = ptr->next;
 		i++;
 	}
